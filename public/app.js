@@ -8,10 +8,12 @@ window.onload = function() {
       var countries = JSON.parse(jsonString);
       var country = countries[0];
       main(countries);
+      initMap();
     }
   }
   request.send(null);
-
+}
+  
   var main = function(countries) {
 
     populateSelect(countries);
@@ -52,4 +54,17 @@ window.onload = function() {
     tags[2].innerText = country.population;
   }
 
+
+
+var initMap = function() {
+  var home = {lat: 52.052156, lng: -1.220455}
+  var CodeClan = {lat: 55.9486, lng: -3.1999}
+
+  var map = new Map(CodeClan, 14);
+  // map.addMarker(home, "F");
+  // map.addMarker(CodeClan, "C");
+  // map.bindClick();
+  // var locator = new GeoLocator(map);
+  // locator.setMapCenter();
+  map.addInfoWindow(home, "my info window!");
 }
